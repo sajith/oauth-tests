@@ -14,3 +14,6 @@ To test out the RESTful stuff, also do:
 
   sudo apt-get install python3-djangorestframework
 
+A comparison of Django rest frameworks is available here:
+https://www.djangopackages.com/grids/g/api/
+
