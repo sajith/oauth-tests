@@ -1,8 +1,23 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework import routers
 
 from . import views
 
+# ------------------------------------------------------------
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+
+# ------------------------------------------------------------
+
 urlpatterns = [
+    # login URLs for the browsable API - stuff for rest_framework
+    url(r'^', include(router.urls))
+    url(r'^api-auth/', include('rest_framework.urls'), namespace='rest_framework')
+
+# ------------------------------------------------------------
+
     # /polls/
     url(r'^$', views.IndexView.as_view(), name='index'),
 
@@ -15,3 +30,5 @@ urlpatterns = [
     # /polls/[[:number:]]/vote
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
 ]
+
+# ------------------------------------------------------------
