@@ -12,3 +12,9 @@ Started this project on Debian Stretch like:
   cd ..
 
 (I'm not sure virtualenv is really needed here.)
+
+And then:
+
+  ./manage.py migrate
+  ./manage.py createsuperuser
+
