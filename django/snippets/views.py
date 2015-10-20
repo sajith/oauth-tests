@@ -24,7 +24,7 @@ def snippet_list(request):
         serializer = SnippetSerializer(snippets, many=True)
         return JSONResponse(serializer.data)
 
-    elif request.method = 'POST':
+    elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = SnippetSerializer(data=data)
         if serializer.is_valid():
